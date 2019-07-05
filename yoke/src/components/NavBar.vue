@@ -7,15 +7,15 @@
           Youke 在线管理平台
         </button>
       </router-link>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/Search">
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="iconfont icon-sousuo"></span>
-            Search
-          </button>
-        </router-link>
-      </li>
       <ul class="nav nav-fill nav-pills" id="lis">
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Search">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="iconfont icon-sousuo"></span>
+              Search
+            </button>
+          </router-link>
+        </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/Comment">
             <button type="button" class="btn btn-default btn-lg">
@@ -26,13 +26,12 @@
         </li>
 
         <li class="nav-item">
-            <router-link class="nav-link" to="User">
-              <button type="button" class="btn btn-default btn-lg"
-              >
-                <span class="iconfont icon-manage"></span>
-                Users
-              </button>
-            </router-link>
+          <router-link class="nav-link" to="User">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="iconfont icon-manage"></span>
+              Users
+            </button>
+          </router-link>
         </li>
       </ul>
       <div>
@@ -53,13 +52,13 @@
                 <div>管理员</div>
               </el-dropdown-item>
               <el-dropdown-item>
-                <div >
+                <div>
                   <span class="iconfont icon-project-copy"></span>
                   <router-link to="/About">职能与守则</router-link>
                 </div>
               </el-dropdown-item>
               <el-dropdown-item>
-                <div >
+                <div>
                   <span class="iconfont icon-tuichu text-danger"></span>退出登录
                 </div>
               </el-dropdown-item>
@@ -72,14 +71,13 @@
 </template>
 
 <script>
-    export default {
-    name: "NavBar",
-    data(){
-        return{
-            login : true
-        }
-    }
-
+export default {
+  name: "NavBar",
+  data() {
+    return {
+      login: true
+    };
+  }
 };
 </script>
 

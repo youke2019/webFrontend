@@ -23,8 +23,13 @@
         autofocus
       />
       <hr />
-      <router-link class="nav-link" to="/Home" >fake Log in</router-link>
-      <button class="btn btn-group-lg btn-primary btn-block bg-primary" type="submit" >@click="url1()" Log in</button>
+      <router-link class="nav-link" to="/Home">fake Log in</router-link>
+      <button
+        class="btn btn-group-lg btn-primary btn-block bg-primary"
+        type="submit"
+      >
+        @click="url1()" Log in
+      </button>
     </div>
   </div>
 </template>
@@ -77,9 +82,8 @@ template {
   font-size: 16px;
   margin-bottom: 10px;
 }
-
-  #t{
-    position: relative;
-    top:100px;
-  }
+#t {
+  position: relative;
+  top: 100px;
+}
 </style>

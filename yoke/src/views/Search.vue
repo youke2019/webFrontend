@@ -1,15 +1,13 @@
 <template>
-    <div>
-        Search Pages
-    </div>
+  <div>
+    Search Pages
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Search"
-    }
+export default {
+  name: "Search"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
