@@ -1,24 +1,32 @@
 <template>
   <div>
     User Pages
-    <div>
-      <ul>
-        <li
-          v-for="(user, index) in users"
-          :key="index"
-          style="display: flex; justify-content: space-around;align-items: center;margin-top: 15px; border-bottom: 1px solid gray;"
-        >
-          <p>{{ user.account }}</p>
-          <p v-if="user.allowed">已允许</p>
-          <p v-else>已禁用</p>
-          <el-switch
-            v-model="user.allowed"
-            active-color="#13ce66"
-            inactive-color="#ff4949"
-          >
-          </el-switch>
-        </li>
-      </ul>
+    <div class="container">
+      <el-table
+        :data="users"
+        style="width: 100%;"
+      >
+        <el-table-column prop="account" label="账户" width="320">
+        </el-table-column>
+        <el-table-column prop="name" label="用户名" width="320">
+        </el-table-column>
+        <el-table-column align="right" prop="allowed" label="用户状态">
+          <template slot-scope="scope">
+            <div class="user_state">
+              <el-switch
+                style="display: block"
+                v-model="scope.row.allowed"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+                active-text="通行"
+                inactive-text="禁用"
+                @change="changeAllow(scope.row.allowed)"
+              >
+              </el-switch>
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
     </div>
   </div>
 </template>
@@ -31,16 +39,26 @@ export default {
       users: [
         {
           account: 123,
+          name: "fuck1",
           allowed: 0
         },
         {
           account: 11,
+          name: "fuck2",
           allowed: 1
         }
       ]
     };
+  },
+  methods: {
+    changeAllow(data) {
+      console.log(data);
+    }
   }
 };
 </script>
-
-<style scoped></style>
+<style scoped>
+.user_state {
+  height: 28px;
+}
+</style>
