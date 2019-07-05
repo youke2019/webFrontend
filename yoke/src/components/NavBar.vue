@@ -24,7 +24,14 @@
             </button>
           </router-link>
         </li>
-
+        <li class="nav-item">
+          <router-link class="nav-link" to="/Video">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="iconfont icon-xuexiao_kemu"></span>
+              Video
+            </button>
+          </router-link>
+        </li>
         <li class="nav-item">
           <router-link class="nav-link" to="User">
             <button type="button" class="btn btn-default btn-lg">
