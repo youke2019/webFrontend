@@ -46,7 +46,9 @@
   },
   methods: {
     changeAllow (ID,banned) {
-        reqChangeUser(ID).then((data)=>{
+        reqChangeUser({
+            "ID":ID
+        }).then((data)=>{
             if (data != banned) {
                 this.$store.dispatch('Person/getUsers').then( () => {
                     this.$message.success("用户权限更改成功")

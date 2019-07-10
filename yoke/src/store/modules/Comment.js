@@ -18,6 +18,9 @@ const mutations = {
     getComments(state, res) {
         state.comments = res.data.comments;
         console.log(res);
+    },
+    removeComment(state,index){
+        state.comments.splice(index,1);
     }
 };
 

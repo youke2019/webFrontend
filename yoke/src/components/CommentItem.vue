@@ -23,13 +23,26 @@
 
     export default {
         name: "CommentItem",
-        props:{commentItem: Object},
+        props:{
+            commentItem: Object,
+            index : Number
+        },
         methods:{
             ban(){
-                reqHandleComment(this.state.commentItem.commentType , this.state.commentItem.commentId , 0 );
+                reqHandleComment({
+                    "commentType":this.state.commentItem.commentType ,"commentId": this.state.commentItem.commentId ,"req": 0
+                } ).then((res)=>{
+                     console.log(res)
+                     this.$store.commit('Comment/removeComment', this.state.index)
+                    })
             },
             shield(){
-                reqHandleComment(this.state.commentItem.commentType , this.state.commentItem.commentId , 1 );
+                reqHandleComment({
+                   "commentType": this.state.commentItem.commentType ,"commentId": this.state.commentItem.commentId , "req":1
+                }).then((res)=>{
+                    console.log(res)
+                    this.$store.commit('Comment/removeComment', this.state.index)
+                })
             }
         }
     }
