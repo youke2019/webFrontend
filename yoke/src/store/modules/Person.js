@@ -1,32 +1,30 @@
+import { reqGetUser} from "../../api";
+
+
 const state ={
-    isLogin :-1,
-    user: null,
-    users: []
+  isLogin: -1,
+  user: null,
+  users: [
+      {
+          ID: 123,
+          name: "fuck1",
+          banned: 0
+      },
+      {
+          ID: 11,
+          name: "fuck2",
+          banned: 1
+      }
+  ]
 };
 
 const actions = {
-    getUsers(context){
-        Axios.get('api/Users/getUsers')
-            .then((res)=>{
-                context.commit('getUsers',res);
-                console.log("getUSer  ");
-            })
-    },
-    changeAllow(context,index) {
-        console.log(index);
-        let is = state.users[index].id;
-        let allowed = (state.users[index].allowed) ? 0 : 1;
-        console.log(state.users[index].account + "\n" + allowed)
-        Axios.post('api/Users/changeAllow',
-            {
-                "id": is, "allowed": allowed
+  getUsers(context){
+        reqGetUser().then((data)=>{
+            context.commit('getUsers',data)
             }
-        ).then((res) => {
-            context.commit('changeAllow',is)
-            console.log("message  " + res.data.target);
-        });
+        )
     }
-
 }
 const mutations = {
     getUsers(state,res){
@@ -34,23 +32,16 @@ const mutations = {
         console.log(res);
     },
     getUser(state,index){
-        return state.users[index].account
-    },
-    changeManager (state,is) {
-        state.isManager = is;
+        return state.users[index].ID
     },
     changeLogin (state,index) {
         state.isLogin = index;
     },
-    addUser (state, user) {
-        state.users.push(user)
-    },
     signout(state){
-        state.isManager = -1;
         state.isLogin = -1;
         state.users.splice(0);
     },
-    signin(state,user){
+    signIn(state,user){
         state.user = user;
     },
     changeAllow (state,index) {

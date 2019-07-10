@@ -27,15 +27,18 @@
       <button
         class="btn btn-group-lg btn-primary btn-block bg-primary"
         type="submit"
+        @click="login"
       >
-        @click="url1()" Log in
+        Log in
       </button>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+    import {reqLogin} from "../api";
+
+    export default {
   name: "Login",
   data() {
     return {
@@ -44,7 +47,38 @@ export default {
         password: ""
       }
     };
-  }
+  },
+    methods:{
+        login(){
+            reqLogin( {
+                "account": this.SignIn.account, "password": this.SignIn.password
+            })
+                .then((res) => {
+                    let num = res.id;
+                    switch (num) {
+                        case -1://forbid
+                            this.$message({
+                                message: '错误的用户名或密码',
+                                type: 'warning',
+                                duration: 1000,
+                                showClose: true
+                            })
+                            return false;
+                        default: //allowed
+                            this.$store.commit('Person/changeLogin', num);
+                            this.$store.commit('Person/signIn',res);
+                            this.$message({
+                                message: '登陆成功',
+                                type: 'success',
+                                duration: 1000,
+                                showClose: true
+                            })
+                            this.$router.push('/Home');
+
+                    }
+                })
+        },
+    }
 };
 </script>
 

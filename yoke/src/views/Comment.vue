@@ -2,26 +2,23 @@
   <div>
     Comment Pages
     <div id="lhs">
-      <div class="btype">To be processed</div>
-      <div class="btype">To be processed</div>
-      <div class="btype">To be processed</div>
+    <ui>
+        <li v-for=""
+    </ui>
     </div>
     <div id="rhs">
-      <div id="box">
-        <div class="container">
-          <h1>Detail</h1>
-          <h5>发布： user1</h5>
-          <h5>位置：</h5>
-          <h5>内容:</h5>
-        </div>
-      </div>
+        <CommentItem>
+
+        </CommentItem>
     </div>
   </div>
 </template>
 
 <script>
+import CommentItem from "../components/CommentItem";
 export default {
-  name: "Comment"
+  name: "Comment",
+    components: {CommentItem},
 };
 </script>
 
@@ -49,7 +46,7 @@ body {
   display: flex;
   height: 30px;
   width: 200px;
-  background-color: burlywood;
+  background-color: #FFFFCC ;
   border: 2px solid whitesmoke;
   justify-content: center;
 }

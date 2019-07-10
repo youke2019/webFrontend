@@ -42,13 +42,7 @@
         </li>
       </ul>
       <div>
-        <router-link v-if="login" to="/login">
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="iconfont icon-weidenglu"></span>
-            <span>登录/注册</span>
-          </button>
-        </router-link>
-        <div class="row mr-0" v-else>
+        <div class="row mr-0">
           <el-dropdown class="mr-3" style="cursor: pointer" trigger="click">
             <span class="el-dropdown-link">
               <i class="iconfont icon-guanliyuan text-primary">管理员</i>

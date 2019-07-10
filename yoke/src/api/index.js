@@ -10,23 +10,22 @@ export const reqLogin = ({ account, password }) =>
 export const reqLogout = () => ajax(BASE_URL + "/admin/signOut");
 
 // 3、改变用户状态
-export const reqChangeUser = account =>
-  ajax(BASE_URL + "/user/change", { account }, "POST");
+export const reqChangeUser = ID =>
+  ajax(BASE_URL + "/admin/users/change", { ID }, "POST");
 
 // 4、获取所有用户状态
-export const reqGetUserState = () => ajax(BASE_URL + "/user/states");
+export const reqGetUser = () => ajax(BASE_URL + "/admin/users/get");
 
 // 5、获取所有评论
-export const reqGetAllComment = () => ajax(BASE_URL + "/comment/getAll");
+export const reqGetAllComment = () => ajax(BASE_URL + "/admin/comment/get");
 
-// 6、搜索评论
-export const reqSearchComment = filter =>
-  ajax(BASE_URL + "/comment/search", { filter });
+// 6、获取单个评论
+export const reqGetOneComment = () => ajax( BASE_URL + "/admin/comment/specific" )
 
-// 18、日期筛选评论
-export const reqDateCommentFilter = (beginDate, endDate, account) =>
-  ajax(BASE_URL + "/comment/date", { beginDate, endDate, account });
+// 7、处理评论，或者ban 或者let off
+export const reqHandleComment = (commentType,comment_id,req) =>
+  ajax(BASE_URL + "/admin/comment/handle", { commentType, comment_id,req });
 
-// 19、日期筛选评论详情
+// 8、日期筛选评论详情
 export const reqDateDetailCommentFilter = (beginDate, endDate, account) =>
-  ajax(BASE_URL + "/comment/dateDetail", { beginDate, endDate, account });
+  ajax(BASE_URL + "/admin/comment/dateDetail", { beginDate, endDate, account });
