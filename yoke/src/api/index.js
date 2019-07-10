@@ -16,7 +16,7 @@ export const reqChangeUser = ID =>
 // 4、获取所有用户状态
 export const reqGetUser = () => ajax(BASE_URL + "/admin/users/get");
 
-// 5、获取所有评论
+// 5、获取所有评论， 建议获取的是所有被举报的
 export const reqGetAllComment = () => ajax(BASE_URL + "/admin/comment/get");
 
 // 6、获取单个评论
@@ -26,6 +26,12 @@ export const reqGetOneComment = () => ajax( BASE_URL + "/admin/comment/specific"
 export const reqHandleComment = (commentType,comment_id,req) =>
   ajax(BASE_URL + "/admin/comment/handle", { commentType, comment_id,req });
 
-// 8、日期筛选评论详情
-export const reqDateDetailCommentFilter = (beginDate, endDate, account) =>
-  ajax(BASE_URL + "/admin/comment/dateDetail", { beginDate, endDate, account });
+// 8、获取所有的视频 （举报的)
+export const reqGetAllVideo = () => ajax( BASE_URL + "/admin/video/get");
+
+// 9、获取单个视频  //这里为虚拟变量
+export const reqGetOneVideo = (video_id) => ajax( BASE_URL + "/admin/video/specific" , {video_id});
+
+// 10、处理评论，或者ban 或者let off
+export const reqHandleVideo = (video_id,req) =>
+    ajax(BASE_URL + "/admin/video/handle", { video_id,req });
