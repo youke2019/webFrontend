@@ -60,7 +60,7 @@
               </el-dropdown-item>
               <el-dropdown-item>
                 <div>
-                  <span class="iconfont icon-tuichu text-danger" ></span>退出登录
+                  <span class="iconfont icon-tuichu text-danger"></span>退出登录
                 </div>
               </el-dropdown-item>
             </el-dropdown-menu>

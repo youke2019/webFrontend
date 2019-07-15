@@ -5,7 +5,7 @@ import Home from "../views/Home";
 import User from "../views/User";
 import Comment from "../views/Comment";
 import Search from "../views/Search";
-import Video from "../views/Video"
+import Video from "../views/Video";
 Vue.use(Router);
 
 export default new Router({

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="row container" style="display: flex; width: 100%; justify-content: center;align-items: center;">
+    <div
+      class="row container"
+      style="display: flex; width: 100%; justify-content: center;align-items: center;"
+    >
       <div class="col-lg-6">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for..." />

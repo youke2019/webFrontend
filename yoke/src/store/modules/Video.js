@@ -1,11 +1,11 @@
 const state = {
-    video:{
+  video:{
 
-    }
+  }
 };
 
 const actions = {
-    getVideo(){}
+  getVideo(){}
 };
 
 const mutations = {
@@ -13,8 +13,8 @@ const mutations = {
 };
 
 export default {
-    namespaced: true,
-    state,
-    actions,
-    mutations
-}
+  namespaced: true,
+  state,
+  actions,
+  mutations
+};
