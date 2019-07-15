@@ -2,21 +2,17 @@
   <div>
     Comment Pages
     <div id="lhs">
-      <ul>
-        <li v-for="(comment, index) in comments" :key="index">
+      <ol>
+        <li v-for="(comment, index) in comments" :key=index>
           <div class="btype" @click="detail(comment, index)">
-            <p>举报者：{comment.ID}</p>
-            <p>举报时间: {comment.comment_time}</p>
+            <div>举报者：{{comment.course_comment_id}}</div>
+            <div>举报时间: {{comment.course_comment_time}}</div>
           </div>
         </li>
-      </ul>
+      </ol>
     </div>
     <div id="rhs">
-      <CommentItem
-        v-if="commentItem != null"
-        :comment="commentItem"
-        :index="index"
-      />
+      <CommentItem/>
     </div>
   </div>
 </template>
@@ -30,8 +26,11 @@ export default {
   data() {
     return {
       commentItem: null,
-      index: 0
+      index: -1
     };
+  },
+  created() {
+    this.$store.dispatch("Comment/getComments").then;
   },
   computed: {
     ...mapState({
@@ -40,8 +39,7 @@ export default {
   },
   methods: {
     detail(comment, index) {
-      this.state.commentItem = comment;
-      this.state.index = index;
+      this.$store.commit("Comment/comment",comment,index )
     }
   }
 };
@@ -68,9 +66,9 @@ body {
 }
 
 .btype {
+  flex-direction: column;
   display: flex;
   width: 200px;
-  background-color: #ffffcc;
   border: 2px solid whitesmoke;
   justify-content: center;
   align-items: center;

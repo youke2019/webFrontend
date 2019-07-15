@@ -2,12 +2,14 @@ import { reqGetAllComment } from "../../api";
 
 const state = {
   comments: [],
-  comment: null
+  comment: null,
+  index:-1
 };
 
 const actions = {
   getComments(context) {
     reqGetAllComment().then(data => {
+      console.log(data);
       context.commit("getComments", data);
     });
   }
@@ -15,11 +17,15 @@ const actions = {
 
 const mutations = {
   getComments(state, res) {
-    state.comments = res.data.comments;
+    state.comments = res;
     console.log(res);
   },
   removeComment(state, index) {
     state.comments.splice(index, 1);
+  },
+  comment(state,comment,index){
+    state.comment = comment;
+    state.index = index;
   }
 };
 
