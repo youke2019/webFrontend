@@ -5,8 +5,9 @@
       <ol>
         <li v-for="(comment, index) in comments" :key=index>
           <div class="btype" @click="detail(comment, index)">
-            <div>举报者：{{comment.course_comment_id}}</div>
-            <div>举报时间: {{comment.course_comment_time}}</div>
+           举报时间: {{comment.course_comment_time}}
+           举报者：{{comment.ID}}
+           举报原因： {{comment.course_comment_content}}
           </div>
         </li>
       </ol>
@@ -54,15 +55,15 @@ body {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 220px;
+  top: 100px;
   float: left;
-  width: 300px;
+  width: 400px;
   background-color: whitesmoke;
 }
 #rhs {
   width: auto;
   margin-top: 100px;
-  margin-left: 300px;
+  margin-left: 400px;
 }
 
 .btype {

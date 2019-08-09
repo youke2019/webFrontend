@@ -2,7 +2,14 @@ import { reqGetAllComment } from "../../api";
 
 const state = {
   comments: [],
-  comment: null,
+  comment: {
+    course_comment_id: -1,
+    course_comment_content: "",
+    course_id: "",
+    course_comment_time: "",
+    user_id: "",
+    isbanned: false
+  },
   index:-1
 };
 

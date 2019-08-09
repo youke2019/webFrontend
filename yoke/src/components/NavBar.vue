@@ -4,7 +4,7 @@
       <router-link to="/Home">
         <button type="button" class="btn btn-default btn-lg">
           <span class="iconfont icon-home"></span>
-          Youke 在线管理平台
+          Yoke 在线管理平台
         </button>
       </router-link>
       <ul class="nav nav-fill nav-pills" id="lis">
