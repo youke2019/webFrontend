@@ -2,10 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Login from "../views/Login.vue";
 import Home from "../views/Home";
-import User from "../views/User";
-import Comment from "../views/Comment";
-import Search from "../views/Search";
-import Video from "../views/Video";
+import About from "../views/About"
 Vue.use(Router);
 
 export default new Router({
@@ -26,20 +23,8 @@ export default new Router({
       component: Login
     },
     {
-      path: "/User",
-      component: User
-    },
-    {
-      path: "/Comment",
-      component: Comment
-    },
-    {
-      path: "/Search",
-      component: Search
-    },
-    {
-      path: "/Video",
-      component: Video
+      path: "/About",
+      component: About
     }
   ]
 });

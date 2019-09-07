@@ -4,16 +4,6 @@ const state = {
   isLogin: -1,
   user: null,
   users: [
-    {
-      ID: 123,
-      name: "fuck1",
-      banned: 0
-    },
-    {
-      ID: 11,
-      name: "fuck2",
-      banned: 1
-    }
   ]
 };
 
@@ -26,7 +16,8 @@ const actions = {
 };
 const mutations = {
   getUsers(state, res) {
-    state.users = res.data.users;
+    state.users = res;
+    console.log("getAllUsers")
     console.log(res);
   },
   getUser(state, index) {
@@ -37,7 +28,6 @@ const mutations = {
   },
   signout(state) {
     state.isLogin = -1;
-    state.users.splice(0);
   },
   signIn(state, user) {
     state.user = user;

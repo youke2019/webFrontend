@@ -3,8 +3,8 @@ module.exports = {
     // 跨域代理
     proxy: {
       "/api": {
-        //target: 'http://47.100.236.223:1211/',
-        target: "http://localhost:8000",
+        target: 'http://47.103.30.166:8000/',
+        //target: "http://localhost:8000",
         changeOrigin: true,
         ws: true,
         pathRewrite: {

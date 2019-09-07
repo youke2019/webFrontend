@@ -23,7 +23,6 @@
         autofocus
       />
       <hr />
-      <router-link class="nav-link" to="/Home">fake Log in</router-link>
       <button
         class="btn btn-group-lg btn-primary btn-block bg-primary"
         type="submit"
@@ -54,19 +53,20 @@
                 "account": this.SignIn.account, "password": this.SignIn.password
             })
                 .then((res) => {
-                    let num = res.id;
-                    switch (num) {
-                        case -1://forbid
+                    let num = res.success;
+                    let msg = res.error_msg;
+                   if(num == false){
                             this.$message({
-                                message: '错误的用户名或密码',
+                                message:msg,
                                 type: 'warning',
                                 duration: 1000,
                                 showClose: true
                             })
                             return false;
-                        default: //allowed
-                            this.$store.commit('Person/changeLogin', num);
-                            this.$store.commit('Person/signIn',res);
+                   }
+                    else{//allowed
+                            this.$store.commit('Person/changeLogin', 1);
+                            this.$store.commit('Person/signIn',this.SignIn.account);
                             this.$message({
                                 message: '登陆成功',
                                 type: 'success',
@@ -74,7 +74,6 @@
                                 showClose: true
                             })
                             this.$router.push('/Home');
-
                     }
                 })
         },

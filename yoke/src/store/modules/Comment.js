@@ -1,7 +1,8 @@
-import { reqGetAllComment } from "../../api";
+import { reqGetReportedComment ,reqGetHandledComment} from "../../api";
 
 const state = {
-  comments: [],
+  ReportedComments: [],
+  HandledComments: [],
   comment: {
     course_comment_id: -1,
     course_comment_content: "",
@@ -10,29 +11,30 @@ const state = {
     user_id: "",
     isbanned: false
   },
-  index:-1
+  index: -1
 };
 
 const actions = {
   getComments(context) {
-    reqGetAllComment().then(data => {
-      console.log(data);
-      context.commit("getComments", data);
+    reqGetReportedComment().then(data => {
+      context.commit("getReportedComments", data);
+    });
+    reqGetHandledComment().then(data => {
+      context.commit("getHandledComments", data);
     });
   }
 };
 
 const mutations = {
-  getComments(state, res) {
-    state.comments = res;
+  getReportedComments(state, res) {
+    state.ReportedComments = res;
+    console.log("getReportedComments")
     console.log(res);
   },
-  removeComment(state, index) {
-    state.comments.splice(index, 1);
-  },
-  comment(state,comment,index){
-    state.comment = comment;
-    state.index = index;
+  getHandledComments(state, res) {
+    state.HandledComments = res;
+    console.log("getHandledComments")
+    console.log(res);
   }
 };
 
