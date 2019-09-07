@@ -46,10 +46,6 @@
                         <el-menu-item v-for="(view, index) in HandledViews" :key=index @click="showView(view,index,1)">{{view.video_report_id}}</el-menu-item>
                     </el-submenu>
                 </el-submenu>
-                <el-submenu index="5">
-                    <template slot="title"><i class="el-icon-menu"></i>用户管理</template>
-                    <el-menu-item v-for="(user, index) in Users" :key=index @click="showUser(user)">{{user.name}}</el-menu-item>
-                </el-submenu>
                 <el-submenu index="7">
                     <template slot="title"><i class="el-icon-menu"></i>用户反馈</template>
                     <el-menu-item v-for="(feedback, index) in FeedBacks" :key=index @click="showFeedBack(feedback)">{{feedback.feedback_id}}</el-menu-item>
@@ -249,7 +245,7 @@
                     </div>
                     <el-row class="btn-group " style="float: left; margin-left: 100px" v-if="item!=null">
                         <el-button type="button" class="btn btn-default" @click="deleteMessage(item.message_id)">删除消息</el-button>
-                        <el-button type="button" class="btn btn-default" v-if="type==6"  @click="changeType">发布新系统消息</el-button>
+
                     </el-row>
                 </div>
                 <div v-if="type==7" class="container" style="display: flex; justify-content: space-between; align-items: center; flex-direction: column">
@@ -464,7 +460,7 @@ export default {
             })
         },
         addMessage(){
-            reqAddMessage(this.Admin_id,this.text,this.image).then();
+            reqAddMessage(1,this.text,"").then();
             this.$store.dispatch("Message/getMessage").then;
         },
         handleRemove(file, fileList) {
