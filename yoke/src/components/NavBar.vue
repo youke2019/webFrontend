@@ -7,7 +7,7 @@
           Yoke 在线管理平台
         </button>
       <div>
-        <div class="row mr-0">
+        <div class="row mr-0" v-if="isLogin==1">
           <el-dropdown class="mr-3" style="cursor: pointer" trigger="click">
             <span class="el-dropdown-link">
               <i class="iconfont icon-guanliyuan text-primary">管理员</i>
@@ -47,7 +47,8 @@ export default {
   },
     computed: {
         ...mapState({
-            Admin_id: state => state.Person.user
+            Admin_id: state => state.Person.user,
+            isLogin: state => state.Person.isLogin
         })
     },
     methods:{
