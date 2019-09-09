@@ -6,6 +6,7 @@
           <span class="iconfont icon-home"></span>
           Yoke 在线管理平台
         </button>
+        <a href="yoke://login?access_token=aaa"> YOKE</a>
       <div>
         <div class="row mr-0" v-if="isLogin==1">
           <el-dropdown class="mr-3" style="cursor: pointer" trigger="click">

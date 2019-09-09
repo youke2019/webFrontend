@@ -459,16 +459,9 @@ export default {
                 this.$store.dispatch("Message/getMessage").then;
             })
         },
-        addMessage(){
-            reqAddMessage(1,this.text,"").then();
+        addMessage() {
+            reqAddMessage(1, this.text, "").then();
             this.$store.dispatch("Message/getMessage").then;
-        },
-        handleRemove(file, fileList) {
-            console.log(file, fileList);
-        },
-        handlePictureCardPreview(file) {
-            this.image = file.url;
-            this.imageVisible = true;
         }
     ,
     upload(item) {
